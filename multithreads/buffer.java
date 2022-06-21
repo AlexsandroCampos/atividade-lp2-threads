@@ -1,6 +1,8 @@
 package multithreads.multithreads;
 
 public interface buffer {
+
+
 	public void putBuffer(int value) 
 			throws InterruptedException;
 	public int getBuffer() throws InterruptedException;
@@ -10,7 +12,7 @@ public interface buffer {
 
 	public void putBufferDoubleArray(double value) throws InterruptedException;
 	public double getBufferDoubleArray() throws InterruptedException;
-	public void putBufferStringArray(int value) throws InterruptedException;
+	public void putBufferStringArray(String value) throws InterruptedException;
 	public int getBufferStringArray() throws InterruptedException;
 
 }

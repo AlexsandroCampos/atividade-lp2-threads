@@ -5,6 +5,9 @@ public class unsysnchronizedBuffer implements buffer {
 	private int i = 0;
 	private int j = 0;
 	private int z = 0;
+	private int y = 0;
+	private int g = 0;
+	private int a = 0;
 	private int[] bufferIntArray = new int[10];
 	private double[] bufferDoubleArray = new double[10];
 	private String[] bufferStringArray = new String[10];
@@ -12,25 +15,26 @@ public class unsysnchronizedBuffer implements buffer {
 	@Override
 	public void putBuffer(int value) 
 			throws InterruptedException{
-		System.out.printf("Escrita valor do putBuffer: \t\t%d", value);
+		System.out.printf("Escrita valor do putBuffer: \t\t\t\t%d", value);
 		buffer = value;
 	}
 
 	@Override
 	public int getBuffer() throws InterruptedException{
-		System.out.printf("Leitura valor do getBuffer: \t\t%d", buffer);
+		System.out.printf("Leitura valor do getBuffer: \t\t\t\t%d", buffer);
 		return buffer;
 	}
 
 	@Override
 	public void putBufferIntArray(int value) throws InterruptedException{
 		System.out.printf("Escrita valor do putBufferIntArray: \t\t%d", value);
-		bufferIntArray[value-1] = value;
+		bufferIntArray[y] = value;
+		y++;
 	}
 
 	@Override
 	public int getBufferIntArray()
-			throws InterruptedException{
+			throws InterruptedException {
 		int readValue = bufferIntArray[i];
 		System.out.printf("Leitura valor do getBufferIntArray: \t\t%d", readValue);
 		if(i != 10) {
@@ -41,14 +45,16 @@ public class unsysnchronizedBuffer implements buffer {
 	}
 
 	@Override
-	public void putBufferDoubleArray(double value) throws InterruptedException {
+	public void putBufferDoubleArray(double value)
+			throws InterruptedException {
 		System.out.printf("Escrita valor putBufferDoubleArray: \t\t%,.2f", value);
-		int indice = (int) value;
-		bufferDoubleArray[indice-1] = value;
+		bufferDoubleArray[a] = value;
+		a++;
 	}
 
 	@Override
-	public double getBufferDoubleArray() throws InterruptedException {
+	public double getBufferDoubleArray()
+			throws InterruptedException {
 		double readValue = bufferDoubleArray[j];
 		System.out.printf("Leitura valor do getBufferDoubleArray: \t\t%,.2f", readValue);
 		if(j != 10) {
@@ -59,10 +65,10 @@ public class unsysnchronizedBuffer implements buffer {
 	}
 
 	@Override
-	public void putBufferStringArray(int indice) throws InterruptedException {
-		System.out.printf("Escrita valor do putBufferStringArray: \t\t%d", indice);
-		String value = String.valueOf(indice);
-		bufferStringArray[indice-1] = value;
+	public void putBufferStringArray(String value) throws InterruptedException {
+		System.out.printf("Escrita valor do putBufferStringArray: \t\t%s", value);
+		bufferStringArray[g] = value;
+		g++;
 	}
 
 	@Override
