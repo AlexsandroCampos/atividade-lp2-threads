@@ -38,7 +38,7 @@ public class unsysnchronizedBuffer implements buffer {
 		int readValue = bufferIntArray[i];
 		System.out.printf("Leitura valor do getBufferIntArray: \t\t%d", readValue);
 		if(i != 10) {
-			if(readValue != 0 && bufferIntArray[i] != 0)
+			if(readValue != 0 && bufferIntArray[i+1] != 0)
 				i++;
 		}
 		return readValue;
